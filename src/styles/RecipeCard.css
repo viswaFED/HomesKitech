@@ -1,0 +1,56 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    /* Ensure card content stacks vertically */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    margin-bottom: 20px;
+    /* Add margin between cards */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card a {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    text-decoration: none;
+    /* Remove default underline from link */
+    color: inherit;
+    /* Inherit text color */
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    /* Adjust height as needed */
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    box-sizing: border-box;
+    /* Ensures padding is included in width calculation */
+}
+
+.card-content h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.card-content p {
+    margin: 8px 0 0;
+    font-size: 14px;
+    color: #666;
+}

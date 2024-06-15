@@ -1,0 +1,83 @@
+.carousel-container {
+    width: 90%;
+    margin: auto;
+}
+
+.carousel-item {
+    position: relative;
+    display: inline-block;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    background: linear-gradient(transparent, #161616);
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 12px;
+}
+
+.carousel-caption > h6 {
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.carousel-caption p {
+    margin: 0;
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.carousel-item:hover .carousel-caption {
+    opacity: 1;
+}
+
+.slick-track {
+    display: flex !important;
+    gap: 36px;
+}
+
+.slick-next::before, .slick-prev::before {
+    color: #161616 !important;
+}
+
+/* Hide arrows on mobile view */
+@media (max-width: 768px) {
+    .slick-prev, .slick-next {
+        display: none !important;
+    }
+
+    .carousel-item {
+        width: 100% !important;
+    }
+
+    .carousel-image {
+        height: 200px; /* Adjust height for mobile view */
+        object-fit: cover; /* Ensure the image covers the entire container */
+    }
+
+    .carousel-caption {
+        padding: 5px 0; /* Reduce padding for mobile view */
+    }
+
+    .carousel-caption > h6 {
+        font-size: 0.875rem; /* Adjust font size for mobile view */
+    }
+
+    .carousel-caption p {
+        font-size: 0.75rem; /* Adjust font size for mobile view */
+    }
+}
