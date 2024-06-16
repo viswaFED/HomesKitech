@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from 'react';
-// import {searchRecipes } from '../../services/api';
+import React from 'react';
 import SearchBar from '../SearchBar';
 import '../../styles/Home.css';
 
 const RecipeHeader = () => {
-    const [searchQuery, setSearchQuery] = useState('');
-    useEffect(() => {
-        // fetchPopularRecipes();
-    }, []);
-
-    const handleSearch = async () => {
-        // const response = await searchRecipes(searchQuery);
-        // setRecipes(response.data.results);
-    };
     return (
         <header className="home-header">
             <div className='home-user'>
@@ -23,7 +13,7 @@ const RecipeHeader = () => {
                 <button class="favorite-button">
                     <span class="text">❤️ Favorite</span>
                 </button>
-                <SearchBar value={searchQuery} onChange={setSearchQuery} onSearch={handleSearch} />
+                <SearchBar/>
             </div>
         </header >
     )

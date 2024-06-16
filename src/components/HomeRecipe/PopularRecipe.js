@@ -1,5 +1,5 @@
-import '../styles/Home.css';
-import RecipeCarousel from './RecipeCarousel';
+import '../../styles/Home.css';
+import RecipeCarousel from '../Carousel/RecipeCarousel';
 
 const PopularRecipe = ({recipeData}) => {
     return (

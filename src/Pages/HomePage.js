@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from 'react';
-// import { getRandomRecipes } from '../services/api';
+import { getRandomRecipes } from '../services/Api';
 import '../styles/Home.css';
-import RecipeCarousel from '../components/RecipeCarousel';
-import data from '../components/data.json'
 import RecipeHeader from '../components/common/header';
-import PopularRecipe from '../components/PopularRecipe';
-import AllRecipes from '../components/AllRecipes';
+import PopularRecipe from '../components/HomeRecipe/PopularRecipe';
+import AllRecipes from '../components/HomeRecipe/AllRecipes';
+import RecipeModal from '../components/Modal/RecipeModal';
+import { useRecipes } from '../services/recipeContextProvider';
+
 
 const Home = () => {
-  const [recipes, setRecipes] = useState(data);
-//   const [searchQuery, setSearchQuery] = useState('');
+  const { recipes, loading, error } = useRecipes();
 
-  useEffect(() => {
-    // fetchPopularRecipes();
-  }, []);
+  if (loading) return <p>Loading...</p>;
 
-//   const fetchPopularRecipes = async () => {
-//     const response = await getRandomRecipes();
-//     setRecipes(response.data.recipes);
-//     console.log(response.data.recipes);
-//   };
-
-
+  if (error) return <p>Error loading recipes: {error.message}</p>
+  
   return (
     <div className="home">
       <RecipeHeader />

@@ -65,19 +65,19 @@
     }
 
     .carousel-image {
-        height: 200px; /* Adjust height for mobile view */
-        object-fit: cover; /* Ensure the image covers the entire container */
+        height: 100px; 
+        object-fit: cover;
     }
 
     .carousel-caption {
-        padding: 5px 0; /* Reduce padding for mobile view */
+        padding: 5px 0;
     }
 
     .carousel-caption > h6 {
-        font-size: 0.875rem; /* Adjust font size for mobile view */
+        font-size: 0.875rem;
     }
 
     .carousel-caption p {
-        font-size: 0.75rem; /* Adjust font size for mobile view */
+        font-size: 0.75rem;
     }
 }

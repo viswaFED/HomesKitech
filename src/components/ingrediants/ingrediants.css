@@ -1,0 +1,41 @@
+.recipe-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.ingredient-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.ingredient-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.ingredient-list {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+.ingredient {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.ingredient img {
+  width: 70px;
+  height: 45px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+
+.ingredient p {
+  font-size: 12px;
+  margin-bottom: 0;
+}

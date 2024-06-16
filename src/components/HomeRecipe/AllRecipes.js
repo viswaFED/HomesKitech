@@ -1,4 +1,4 @@
-import RecipeCard from './RecipeCard';
+import RecipeCard from '../common/RecipeCard';
 
 const AllRecipes = ({ recipeData }) => {
 
@@ -13,7 +13,7 @@ const AllRecipes = ({ recipeData }) => {
                 </div>
             </section>
             <div className="loading-more">
-                <p>Loading more recipes</p>
+                <p>Loading more recipes...</p>
             </div>
         </>
     )
