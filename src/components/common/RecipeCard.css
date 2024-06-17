@@ -24,6 +24,7 @@
 
 .card-image {
     width: 40%;
+    flex: 0 0 40%;
     height: 100%;
     overflow: hidden;
 }

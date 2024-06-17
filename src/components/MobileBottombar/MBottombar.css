@@ -20,11 +20,11 @@
 }
 
 .mobile-bottom-bar .bottom-bar-item:hover {
-  background-color: #f0f4f8; /* Example of hover background color */
+  background-color: #f0f4f8; 
 }
 
 .mobile-bottom-bar .bottom-bar-item.active {
-  background-color: #f0f4f8; /* Example of active background color */
+  background-color: #88bdf2; 
 }
 
 .mobile-bottom-bar .bottom-bar-icon {

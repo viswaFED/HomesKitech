@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import '../components/FullRecipe/fullrecipe.css'
+import '../FullRecipe/fullrecipe.css'
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
-import RecipeCard from './common/RecipeCard';
-import { getSimilarRecipes } from '../services/Api';
+import RecipeCard from './RecipeCard';
+import { getSimilarRecipes } from '../../services/Api';
 import { useParams } from 'react-router-dom';
 
 const SimilarRecipe = () => {
@@ -15,7 +15,7 @@ const SimilarRecipe = () => {
             try {
                 const response = await getSimilarRecipes(id)
                 setSimilarRecipe(response?.data || []);
-                console.log(response)
+                // console.log(response)
             } catch (error) {
                 console.error('Error fetching instructions:', error);
             }

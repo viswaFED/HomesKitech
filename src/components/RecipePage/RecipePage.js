@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './RecipePage.css';
 import { useParams } from 'react-router-dom';
 import { getRecipeInformation } from '../../services/Api';
-import SimilarRecipe from '../SimilarRecipe';
+import SimilarRecipe from '../common/SimilarRecipe';
 import { useNavigate } from 'react-router-dom';
 
 const RecipePage = () => {
@@ -29,7 +29,7 @@ const RecipePage = () => {
         try {
             const response = await getRecipeInformation(id);
             setRecipe(response.data);
-            console.log(response);
+            // console.log(response);
         } catch (error) {
             console.error("Error fetching suggestions:", error);
         } finally {

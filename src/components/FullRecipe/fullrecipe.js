@@ -4,6 +4,7 @@ import Section from '../common/FullRecipeSections';
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { useParams } from 'react-router-dom';
 import { fetchEquipment, fetchInstructions, fetchSummary, fetchNutrition } from '../common/apiModule';
+
 const FullRecipe = ({ title }) => {
     const [isOpen, setIsOpen] = useState(true);
     const { id } = useParams();

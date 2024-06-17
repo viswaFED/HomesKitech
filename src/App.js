@@ -12,6 +12,7 @@ import RecipePage from "./components/RecipePage/RecipePage";
 import FavoritesPage from "./Pages/FavoritesPage";
 import LoginPage from "./Pages/loginPage";
 import Navbar from "./Navbar/navbar";
+import ModalRecipe from "./Pages/recipeModal";
 
 const PrivateRoutes = () => {
   const location = useLocation();
@@ -34,10 +35,12 @@ const PrivateRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/recipe/:id/:title" element={<RecipePage />} />
         <Route path="/recipe/favorites" element={<FavoritesPage />} />
-        {previousLocation && (
-          <Route path="/recipe/:id" element={<RecipePage />} />
-        )}
         <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+      <Routes>
+        {previousLocation && (
+          <Route path="/recipes/:id" element={<ModalRecipe />} />
+        )}
       </Routes>
     </>
   );

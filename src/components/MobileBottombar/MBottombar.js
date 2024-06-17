@@ -1,6 +1,6 @@
 import "./MBottombar.css";
 import { NavLink } from "react-router-dom";
-import { FiHome, FiHeart } from "react-icons/fi"; // Assuming you are using react-icons for icons
+import { FiHome, FiHeart } from "react-icons/fi";
 
 const MobileBottomBar = () => {
   return (

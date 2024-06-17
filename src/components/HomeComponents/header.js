@@ -1,6 +1,6 @@
 import React from "react";
-import SearchBar from "../SearchBar";
-import "../../styles/Home.css";
+import SearchBar from "../Search/SearchBar";
+import "../../Pages/Home.css";
 import { Link } from "react-router-dom";
 
 const RecipeHeader = () => {

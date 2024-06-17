@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import AllRecipes from "../components/HomeRecipe/AllRecipes";
+import AllRecipes from "../components/HomeComponents/AllRecipes";
 import MobileBottomBar from "../components/MobileBottombar/MBottombar";
 
 const FavoritesPage = () => {

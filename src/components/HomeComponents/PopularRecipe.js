@@ -1,4 +1,4 @@
-import '../../styles/Home.css';
+import "../../Pages/Home.css";
 import RecipeCarousel from '../Carousel/RecipeCarousel';
 
 const PopularRecipe = ({recipeData}) => {

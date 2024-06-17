@@ -1,8 +1,8 @@
 import React from "react";
-import "../styles/Home.css";
-import RecipeHeader from "../components/common/header";
-import PopularRecipe from "../components/HomeRecipe/PopularRecipe";
-import AllRecipes from "../components/HomeRecipe/AllRecipes";
+import "./Home.css";
+import RecipeHeader from "../components/HomeComponents/header";
+import PopularRecipe from "../components/HomeComponents/PopularRecipe";
+import AllRecipes from "../components/HomeComponents/AllRecipes";
 import { useRecipes } from "../services/recipeContextProvider";
 import MobileBottomBar from "../components/MobileBottombar/MBottombar";
 
