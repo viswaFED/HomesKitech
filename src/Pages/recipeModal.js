@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import RecipeModal from "./components/Modal/RecipeModal";
-import { getRecipeInformation } from './services/Api';
+import RecipeModal from "../components/Modal/RecipeModal";
+import { getRecipeInformation } from '../services/Api';
 
 const Rrecipe = () => {
     const { id } = useParams();
@@ -9,7 +9,8 @@ const Rrecipe = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        fetchRecipeDetail();
+        fetchRecipeDetail(id);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     const fetchRecipeDetail = async () => {

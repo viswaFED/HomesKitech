@@ -3,11 +3,9 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import '../../styles/RecipeCarousel.css';
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const RecipieCarousel = ({ recipes }) => {
-    const location = useLocation();
-
     var settings = {
         dots: false,
         infinite: false,
@@ -51,7 +49,7 @@ const RecipieCarousel = ({ recipes }) => {
             <Slider {...settings}>
                 {recipes.map((item, index) => (
                     <div key={index} className="carousel-item">
-                        <Link to={`/recipe/${item.id}`} state={{ previousLocation: location }}>
+                        <Link to={`/recipe/${item.id}/${item.title}`}>
                             <img
                                 src={item.image}
                                 alt={`Template ${index + 1}`}

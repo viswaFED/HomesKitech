@@ -13,7 +13,8 @@ const RecipePage = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        fetchRecipeDetail();
+        fetchRecipeDetail(id);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     useEffect(() => {
