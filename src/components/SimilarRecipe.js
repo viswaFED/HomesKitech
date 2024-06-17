@@ -21,7 +21,7 @@ const SimilarRecipe = () => {
             }
         }
         fetchRecipes();
-    }, [])
+    }, [id])
     const toggleOpen = () => {
         setIsOpen(!isOpen);
     };

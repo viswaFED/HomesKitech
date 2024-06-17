@@ -73,7 +73,7 @@ const SearchBar = () => {
             {isLoading && <p>Loading...</p>}
                 {suggestions.map((suggestion, index) => (
                     <li key={index} onClick={() => handleSuggestionClick(suggestion)}>
-                        <Link to={`/recipe/${suggestion.id}`} state={{ previousLocation: location }}>
+                        <Link to={`/recipe/${suggestion.id}`} state={{ previousLocation: location }} style={{ textDecoration: 'none', color:"black" }}>
                             {suggestion.title}
                         </Link>
                     </li>

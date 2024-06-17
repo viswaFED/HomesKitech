@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import IngredientRecipeCard from '../ingrediants/ingrediants';
 import FullRecipe from '../FullRecipe/fullrecipe';
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
@@ -11,16 +11,11 @@ import { IngredientsButton, FullRecipeButton, SimilarRecipesButton } from '../co
 
 const RecipeModal = ({ recipe }) => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const isModalOpen = location.pathname.includes('/recipe/:id')
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-    const [ingredients, setIngredients] = useState(null);
-    const [fullRecipe, setFullRecipe] = useState(null);
-    const [similarRecipe, setSimilarRecipe] = useState(null);
     const [currentView, setCurrentView] = useState('home');
-    const [loading, setLoading] = useState(false);
-    const [favorite, setIsFavorite] = useState(null);
-    const handleViewChange = (view) => {
-        setCurrentView(view);
-    };
+    const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
         const handleResize = () => {
@@ -34,27 +29,42 @@ const RecipeModal = ({ recipe }) => {
         };
     }, []);
 
+    useEffect(() => {
+        if (isModalOpen) {
+            document.body.classList.add('modal-open');
+        } else {
+            document.body.classList.remove('modal-open');
+        }
+
+        return () => {
+            document.body.classList.remove('modal-open');
+        };
+    }, [isModalOpen]);
+
+    useEffect(() => {
+        const cachedFavorites = localStorage.getItem('favorites');
+        if (cachedFavorites) {
+            setFavorites(JSON.parse(cachedFavorites));
+        }
+    }, []);
+
     const closeModal = () => {
-        navigate('/');
+        navigate('/Home');
     };
 
-    const addToFavorites = (recipe) => {
-        // let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        // const index = favorites.findIndex(fav => fav.id.toString() === recipe.id.toString());
-
-        // if (index === -1) {
-        //     favorites.push(recipe);
-        // } else {
-        //     favorites.splice(index, 1);
-        // }
-
-        // localStorage.setItem('favorites', JSON.stringify(favorites));
-        // setIsFavorite(index === -1); // Update state to reflect the change
+    const handleFavorite = (recipe) => {
+        let updatedFavorites;
+        if (favorites.some(fav => fav.id === recipe.id)) {
+            updatedFavorites = favorites.filter(fav => fav.id !== recipe.id);
+        } else {
+            updatedFavorites = [...favorites, recipe];
+        }
+        setFavorites(updatedFavorites);
+        localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     };
 
-    const isFavorites = (recipe) => {
-        // const data = JSON.parse(localStorage.getItem('favorites')) || [];
-        // return data.some(fav => fav.id.toString() === recipe.id.toString());
+    const isFavorite = (recipeId) => {
+        return favorites.some(fav => fav.id === recipeId);
     };
 
     const fetchIngredients =  () => setCurrentView('ingredient');    
@@ -73,6 +83,7 @@ const RecipeModal = ({ recipe }) => {
                 break;
             case 'ingredient':
                 setCurrentView('home')
+                break;
             default:
                 closeModal()
                 break;
@@ -98,7 +109,7 @@ const RecipeModal = ({ recipe }) => {
 
 
 
-    const RenderButtons = ({ ingredients, fullRecipe, fetchIngredients, fetchFullRecipe, moreRecipe }) => {
+    const RenderButtons = () => {
         if (currentView === 'home') {
             return <IngredientsButton onClick={fetchIngredients} />;
         }
@@ -123,8 +134,8 @@ const RecipeModal = ({ recipe }) => {
                         <FaRegArrowAltCircleLeft />
                     </button>
                     <h2 className='modal-title'>{recipe.title}</h2>
-                    <button className='button' onClick={() => addToFavorites(recipe.id)}>
-                        {isFavorites(recipe) ? <MdFavoriteBorder /> : <MdFavorite fill='red' />} {/* Heart icon */}
+                    <button className='button' onClick={() => handleFavorite(recipe)}>
+                        {isFavorite(recipe.id) ? <MdFavorite fill='red' /> : <MdFavoriteBorder />}
                     </button>
                 </div>
                 <div className='content'>
@@ -132,7 +143,7 @@ const RecipeModal = ({ recipe }) => {
                         <>
                             <img src={recipe.image} alt={recipe.title} className='image' />
                             <p>{recipe.description}</p>
-                            <div className='info-container'>
+                            <div className='info'>
                                 <div className='info-item'>
                                     <p className='info'>Ready in</p>
                                     <p className='info'>{recipe.readyInMinutes} min</p>
@@ -148,16 +159,10 @@ const RecipeModal = ({ recipe }) => {
                             </div>
                         </>
                     )}
-                    {currentView != "home" && (<div className='modalScrolldiv'>
+                    {currentView !== "home" && (<div className='modalScrolldiv'>
                         {viewComponents[currentView]}
                     </div>)}
-                    <RenderButtons
-                        ingredients={ingredients}
-                        fullRecipe={fullRecipe}
-                        fetchIngredients={fetchIngredients}
-                        fetchFullRecipe={fetchFullRecipe}
-                        setSimilarRecipe={setSimilarRecipe}
-                    />
+                    <RenderButtons/>
                 </div>
             </div>
         </>

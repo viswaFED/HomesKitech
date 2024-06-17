@@ -1,4 +1,4 @@
 
 export const baseURL = 'https://api.spoonacular.com/';
-export const apiKey = '9ec56ddc9cc741ee85e83464fb169821';
+export const apiKey = '3abf2784fc724b6da08d7423e9511548';
 

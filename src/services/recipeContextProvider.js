@@ -6,7 +6,6 @@ export const RecipeProvider = ({ children }) => {
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
         const fetchRecipes = async () => {
@@ -25,7 +24,7 @@ export const RecipeProvider = ({ children }) => {
     }, []);
 
     return (
-        <RecipeContext.Provider value={{ recipes, loading, error, favorites, setFavorites }}>
+        <RecipeContext.Provider value={{ recipes, loading, error}}>
             {children}
         </RecipeContext.Provider>
     );

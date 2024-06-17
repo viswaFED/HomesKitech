@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './fullrecipe.css'
-import axios from 'axios';
 import Section from '../common/FullRecipeSections';
 import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
 import { useParams } from 'react-router-dom';

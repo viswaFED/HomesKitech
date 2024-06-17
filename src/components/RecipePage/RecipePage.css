@@ -71,14 +71,14 @@ html {
   right: 10px;
 }
 
-.info {
+.info-container {
   display: flex;
   justify-content: space-between;
   margin: 16px 0;
   padding: 0 16px;
 }
 
-.info-item {
+.info-card {
   text-align: center;
   border: 1px grey;
   background: white;
@@ -153,11 +153,9 @@ html {
   .main-container {
     flex-direction: row;
   }
-
-  .content .info-item {
+   .info-card {
     padding: 0;
   }
-
   .recipe-container {
     width: 50%;
     margin: 0;
@@ -170,7 +168,7 @@ html {
     padding: 16px;
   }
 
-  .info {
+  .info-container {
     margin: 16px;
     padding: 0;
   }
@@ -271,7 +269,7 @@ html {
   border-radius: 50%;
 }
 
-.info {
+info-container {
   margin-bottom: 20px;
 }
 

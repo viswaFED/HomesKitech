@@ -1,0 +1,44 @@
+.mobile-bottom-bar {
+  display: none; /* Initially hide for larger screens */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Adjust as necessary */
+}
+
+.mobile-bottom-bar .bottom-bar-item {
+  text-align: center;
+  padding: 10px;
+  width: 50%; /* Two items, each taking 50% width */
+  box-sizing: border-box;
+  cursor: pointer;
+  text-decoration: none; /* Remove default underline for NavLink */
+  color: #666; /* Example text color */
+}
+
+.mobile-bottom-bar .bottom-bar-item:hover {
+  background-color: #f0f4f8; /* Example of hover background color */
+}
+
+.mobile-bottom-bar .bottom-bar-item.active {
+  background-color: #f0f4f8; /* Example of active background color */
+}
+
+.mobile-bottom-bar .bottom-bar-icon {
+  font-size: 1.5rem;
+}
+
+.mobile-bottom-bar .bottom-bar-text {
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-bar {
+    display: flex;
+  }
+}

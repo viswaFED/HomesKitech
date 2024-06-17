@@ -1,11 +1,11 @@
 import RecipeCard from '../common/RecipeCard';
 
-const AllRecipes = ({ recipeData }) => {
+const AllRecipes = ({ recipeData, title }) => {
 
     return (
         <>
             <section className="all-recipes">
-                <h2>All Recipes</h2>
+                <h2>{title}</h2>
                 <div className="card-grid">
                     {recipeData.map((recipe) => (
                         <RecipeCard key={recipe.id} recipe={recipe} type="all" />
